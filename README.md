@@ -6,10 +6,9 @@
 - Postgres
 - SqlAlchemy with Alembic for migrations
 - Pytest for backend tests
-- Jest for frontend tests
 - Perttier/Eslint (with Airbnb style guide)
 - Docker compose for easier development
-- Nginx as a reverse proxy to allow backend and frontend on the same port
+- Nginx as a reverse proxy to allow backend on the same port
 
 ## Development
 
@@ -74,7 +73,7 @@ And fill in `upgrade` and `downgrade` methods. For more information see
 
 ## Testing
 
-There is a helper script for both frontend and backend tests:
+There is a helper script for backend tests:
 
 ```
 ./scripts/test.sh
@@ -88,13 +87,6 @@ docker-compose run backend pytest
 
 any arguments to pytest can also be passed after this command
 
-### Frontend Tests
-
-```
-docker-compose run frontend test
-```
-
-This is the same as running npm test from within the frontend directory
 
 ## Logging
 
@@ -105,7 +97,7 @@ docker-compose logs
 Or for a specific service:
 
 ```
-docker-compose logs -f name_of_service # frontend|backend|db
+docker-compose logs -f name_of_service # backend|db
 ```
 
 ## Project Layout
