@@ -9,7 +9,7 @@ from schemas import cinema as cinema_schema
 def get_cinema(db: Session, cinema_id: int):
     cinema = db.query(models.Cinema).filter(models.Cinema.id == cinema_id).first()
     if not cinema:
-        raise HTTPException(status_code=404, detail="Cinema not found")
+        raise HTTPException(status_code=404, detail="cinema not found")
     return cinema
 
 

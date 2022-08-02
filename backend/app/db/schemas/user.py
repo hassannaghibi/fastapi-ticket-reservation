@@ -1,7 +1,6 @@
 from pydantic import BaseModel
 from book import Book
 from cinema import Cinema
-
 import typing as t
 
 
@@ -12,10 +11,8 @@ class UserBase(BaseModel):
     first_name: str = None
     last_name: str = None
 
-
 class UserOut(UserBase):
     pass
-
 
 class UserCreate(UserBase):
     password: str
@@ -23,13 +20,11 @@ class UserCreate(UserBase):
     class Config:
         orm_mode = True
 
-
 class UserEdit(UserBase):
     password: t.Optional[str] = None
 
     class Config:
         orm_mode = True
-
 
 class User(UserBase):
     id: int
@@ -42,7 +37,6 @@ class User(UserBase):
 class Token(BaseModel):
     access_token: str
     token_type: str
-
 
 class TokenData(BaseModel):
     email: str = None

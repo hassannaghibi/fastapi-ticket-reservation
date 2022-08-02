@@ -1,8 +1,8 @@
 from typing import Union
 from pydantic import BaseModel
 from showing import Showing 
-
 import typing as t
+
 
 class MovieBase(BaseModel):
     title: str
@@ -10,6 +10,9 @@ class MovieBase(BaseModel):
     
     class Config:
         orm_mode = True
+
+class MovieOut(MovieBase):
+    pass
 
 class MovieCreate(MovieBase):
     pass

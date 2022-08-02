@@ -1,8 +1,8 @@
 from typing import Union
 from pydantic import BaseModel
 from hall import Hall 
-
 import typing as t
+
 
 class CinemaBase(BaseModel):
     name: str
@@ -13,7 +13,6 @@ class CinemaBase(BaseModel):
 
 class CinemaOut(CinemaBase):
     pass
-
 
 class CinemaCreate(CinemaBase):
     pass

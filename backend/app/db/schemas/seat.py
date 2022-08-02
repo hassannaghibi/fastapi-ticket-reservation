@@ -1,13 +1,16 @@
 from pydantic import BaseModel
 from book import Book 
-
 import typing as t
+
 
 class SeatBase(BaseModel):
     number: int
     
     class Config:
         orm_mode = True
+
+class SeatOut(SeatBase):
+    pass
 
 class SeatCreate(SeatBase):
     pass

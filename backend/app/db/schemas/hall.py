@@ -2,8 +2,8 @@ from typing import Union
 from pydantic import BaseModel
 from seat import Seat 
 from showing import Showing 
-
 import typing as t
+
 
 class HallBase(BaseModel):
     name: str
@@ -11,6 +11,9 @@ class HallBase(BaseModel):
     
     class Config:
         orm_mode = True
+
+class HallOut(HallBase):
+    pass
 
 class HallCreate(HallBase):
     pass

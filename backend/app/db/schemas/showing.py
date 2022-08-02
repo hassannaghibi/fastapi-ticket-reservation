@@ -1,11 +1,35 @@
 from pydantic import BaseModel
+from datetime import datetime
+from book import Book 
+import typing as t
 
 
-class Book(BaseModel):
+class ShowingBase(BaseModel):
+    title: str
+    start: datetime
+    end: datetime
+    
+    class Config:
+        orm_mode = True
+
+class MovieShowingOut(ShowingBase):
+    pass
+
+class ShowingCreate(ShowingBase):
+    pass
+
+class ShowingEdit(ShowingBase):
+    number: t.Optional[int] = None
+
+    class Config:
+        orm_mode = True
+
+class Showing(ShowingBase):
     id: int
-    seat_id: int
-    user_id: int
-    showing_id: bool
+    hall_id: int
+    movie_id: int
+    is_active: bool
+    books: list[Book] = []
     
     class Config:
         orm_mode = True
