@@ -1,7 +1,14 @@
 from pydantic import BaseModel
 
 
-class Book(BaseModel):
+
+class BookBase(BaseModel):
+    pass
+            
+class BookOut(BookBase):
+    pass
+
+class Book(BookBase):
     id: int
     seat_id: int
     user_id: int
