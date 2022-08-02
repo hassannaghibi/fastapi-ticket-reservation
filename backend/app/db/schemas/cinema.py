@@ -28,7 +28,7 @@ class CinemaEdit(CinemaBase):
 class Cinema(CinemaBase):
     id: int
     user_id: int
-    : bool
+    is_active: bool
     halls: list[Hall] = []
     
     class Config:
