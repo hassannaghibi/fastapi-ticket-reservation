@@ -11,6 +11,10 @@ class CinemaBase(BaseModel):
     class Config:
         orm_mode = True
 
+class CinemaOut(CinemaBase):
+    pass
+
+
 class CinemaCreate(CinemaBase):
     pass
 
@@ -24,7 +28,7 @@ class CinemaEdit(CinemaBase):
 class Cinema(CinemaBase):
     id: int
     user_id: int
-    is_active: bool
+    : bool
     halls: list[Hall] = []
     
     class Config:
