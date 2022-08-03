@@ -2,7 +2,7 @@ from fastapi import APIRouter, Request, Depends, Response, encoders
 import typing as t
 
 from app.db.session import get_db
-from app.db.crud import (
+from app.db.crud.user import (
     get_users,
     get_user,
     create_user,

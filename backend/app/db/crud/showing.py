@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 import typing as t
 
 from db import models
-from schemas import showing as showing_schema
+from db.schemas import showing as showing_schema
 
 
 def get_showing(db: Session, showing_id: int):

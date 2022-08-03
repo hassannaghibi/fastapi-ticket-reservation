@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 import typing as t
 
 from db import models
-from schemas import seat as seat_schema
+from db.schemas import seat as seat_schema
 
 
 def get_seat(db: Session, seat_id: int):

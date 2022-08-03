@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 import typing as t
 
 from db import models
-from schemas import book as book_schema
+from db.schemas import book as book_schema
 
 
 def get_book(db: Session, book_id: int):

@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 import typing as t
 
 from db import models
-from schemas import hall as hall_schema
+from db.schemas import hall as hall_schema
 
 
 def get_hall(db: Session, hall_id: int):

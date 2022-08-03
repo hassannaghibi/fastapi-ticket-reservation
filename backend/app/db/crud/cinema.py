@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 import typing as t
 
 from db import models
-from schemas import cinema as cinema_schema
+from db.schemas import cinema as cinema_schema
 
 
 def get_cinema(db: Session, cinema_id: int):
