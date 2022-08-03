@@ -6,7 +6,7 @@ from app.db.crud.book import (
     get_books,
     get_book,
 )
-from app.db.schemas import Book
+from app.db.schemas.book import Book
 
 books_router = r = APIRouter()
 

@@ -9,7 +9,7 @@ from app.db.crud.seat import (
     delete_seat,
     edit_seat,
 )
-from app.db.schemas import SeatCreate, SeatEdit, Seat, SeatOut
+from app.db.schemas.seat import SeatCreate, SeatEdit, Seat, SeatOut
 
 seats_router = r = APIRouter()
 

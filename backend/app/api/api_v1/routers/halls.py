@@ -9,7 +9,7 @@ from app.db.crud.hall import (
     delete_hall,
     edit_hall,
 )
-from app.db.schemas import HallCreate, HallEdit, Hall, HallOut
+from app.db.schemas.hall import HallCreate, HallEdit, Hall, HallOut
 
 halls_router = r = APIRouter()
 

@@ -12,7 +12,7 @@ class ShowingBase(BaseModel):
     class Config:
         orm_mode = True
 
-class MovieShowingOut(ShowingBase):
+class ShowingOut(ShowingBase):
     pass
 
 class ShowingCreate(ShowingBase):

@@ -9,7 +9,7 @@ from app.db.crud.cinema import (
     delete_cinema,
     edit_cinema,
 )
-from app.db.schemas import CinemaCreate, CinemaEdit, Cinema, CinemaOut
+from app.db.schemas.cinema import CinemaCreate, CinemaEdit, Cinema, CinemaOut
 
 cinemas_router = r = APIRouter()
 

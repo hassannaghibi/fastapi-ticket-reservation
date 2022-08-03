@@ -9,7 +9,7 @@ from app.db.crud.movie import (
     delete_movie,
     edit_movie,
 )
-from app.db.schemas import MovieCreate, MovieEdit, Movie, MovieOut
+from app.db.schemas.movie import MovieCreate, MovieEdit, Movie, MovieOut
 
 movies_router = r = APIRouter()
 

@@ -9,7 +9,7 @@ from app.db.crud.showing import (
     delete_showing,
     edit_showing,
 )
-from app.db.schemas import ShowingCreate, ShowingEdit, Showing, ShowingOut
+from app.db.schemas.showing import ShowingCreate, ShowingEdit, Showing, ShowingOut
 
 showings_router = r = APIRouter()
 
