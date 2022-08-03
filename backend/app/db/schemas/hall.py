@@ -1,7 +1,7 @@
 from typing import Union
 from pydantic import BaseModel
-from seat import Seat 
-from showing import Showing 
+from .seat import Seat 
+from .showing import Showing 
 import typing as t
 
 
@@ -28,8 +28,8 @@ class HallEdit(HallBase):
 class Hall(HallBase):
     id: int
     is_active: bool
-    seats: list[Seat] = []
-    showings: list[Showing] = []
+    seats: t.List[Seat] = None
+    showings: t.List[Showing] = None
     
     class Config:
         orm_mode = True

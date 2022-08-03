@@ -1,6 +1,6 @@
 from typing import Union
 from pydantic import BaseModel
-from showing import Showing 
+from .showing import Showing 
 import typing as t
 
 
@@ -27,7 +27,7 @@ class MovieEdit(MovieBase):
 class Movie(MovieBase):
     id: int
     is_active: bool
-    showings: list[Showing] = []
+    showings: t.List[Showing] = None
     
     class Config:
         orm_mode = True

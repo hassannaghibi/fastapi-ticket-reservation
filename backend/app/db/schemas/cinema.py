@@ -1,6 +1,6 @@
 from typing import Union
 from pydantic import BaseModel
-from hall import Hall 
+from .hall import Hall 
 import typing as t
 
 
@@ -28,7 +28,7 @@ class Cinema(CinemaBase):
     id: int
     user_id: int
     is_active: bool
-    halls: list[Hall] = []
+    halls: t.List[Hall] = None
     
     class Config:
         orm_mode = True

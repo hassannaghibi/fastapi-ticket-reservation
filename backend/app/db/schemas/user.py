@@ -1,7 +1,7 @@
 from pydantic import BaseModel
-from book import Book
-from cinema import Cinema
 import typing as t
+from .cinema import Cinema
+from .book import Book
 
 
 class UserBase(BaseModel):
@@ -28,8 +28,8 @@ class UserEdit(UserBase):
 
 class User(UserBase):
     id: int
-    books: list[Book] = []
-    cinemas:list[Cinema] = []
+    books: t.List[Book] = None
+    cinemas:t.List[Cinema] = None
 
     class Config:
         orm_mode = True

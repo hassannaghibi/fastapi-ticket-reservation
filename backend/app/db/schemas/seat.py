@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from book import Book 
+from .book import Book 
 import typing as t
 
 
@@ -25,7 +25,7 @@ class Seat(SeatBase):
     id: int
     hall_id: int
     is_active: bool
-    books: list[Book] = []
+    books: t.List[Book] = None
     
     class Config:
         orm_mode = True

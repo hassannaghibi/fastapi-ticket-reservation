@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from datetime import datetime
-from book import Book 
+from .book import Book 
 import typing as t
 
 
@@ -29,7 +29,7 @@ class Showing(ShowingBase):
     hall_id: int
     movie_id: int
     is_active: bool
-    books: list[Book] = []
+    books: t.List[Book] = None
     
     class Config:
         orm_mode = True
