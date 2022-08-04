@@ -12,7 +12,6 @@ from app.db.session import Base, get_db
 from app.db import models
 from app.main import app
 
-#   User Test Methods
 
 def get_test_db_url() -> str:
     return f"{config.SQLALCHEMY_DATABASE_URI}_test"
@@ -90,6 +89,7 @@ def client(test_db):
     yield TestClient(app)
 
 
+#   User Test Methods
 @pytest.fixture
 def test_password() -> str:
     return "securepassword"
@@ -135,7 +135,6 @@ def test_superuser(test_db) -> models.User:
 
 
 #   Auth Test Methods
-
 def verify_password_mock(first: str, second: str) -> bool:
     return True
 
@@ -175,7 +174,6 @@ def superuser_token_headers(
 
 
 #   Cinema Test Methods
-
 @pytest.fixture
 def test_cinema(test_db) -> models.Cinema:
     """
@@ -193,7 +191,6 @@ def test_cinema(test_db) -> models.Cinema:
 
 
 #   Hall Test Methods
-
 @pytest.fixture
 def test_hall(test_db) -> models.Hall:
     """
@@ -212,7 +209,6 @@ def test_hall(test_db) -> models.Hall:
 
 
 #   Movie Test Methods
-
 @pytest.fixture
 def test_movie(test_db) -> models.Movie:
     """
@@ -230,7 +226,6 @@ def test_movie(test_db) -> models.Movie:
 
 
 #   Showing Test Methods
-
 @pytest.fixture
 def test_showing(test_db) -> models.Showing:
     """
@@ -251,7 +246,6 @@ def test_showing(test_db) -> models.Showing:
 
 
 #   Seat Test Methods
-
 @pytest.fixture
 def test_seat(test_db) -> models.Seat:
     """
@@ -269,7 +263,6 @@ def test_seat(test_db) -> models.Seat:
 
 
 #   Book Test Methods
-
 @pytest.fixture
 def test_book(test_db) -> models.Book:
     """
