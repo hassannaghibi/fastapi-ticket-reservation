@@ -1,4 +1,6 @@
-# fastapi-ticket-reservation
+# FastAPI Ticket Reservation (fastapi, postgresql, celery, redis, flower)
+
+This project is a sample of comunication between fastapi and postgresql with celery, redis and flower to show the ORM relations in fastapi and how to config the redis and celery together and how to setup all the services on docker-compose file.
 
 ## Features
 
