@@ -44,7 +44,10 @@ class Hall(Base):
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime, default=datetime.now)
     updated_at = Column(DateTime, default=datetime.now, onupdate=datetime.now)    
+    #foreignKey
+    cinema_id = Column(Integer, ForeignKey("cinemas.id"))
     #foreignKey relations
+    cinema = relationship("Cinema", back_populates="halls")
     seats = relationship("Seat", back_populates="hall")
     showings = relationship("Showing", back_populates="hall")
 

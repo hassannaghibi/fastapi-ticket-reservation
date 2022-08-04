@@ -1,6 +1,8 @@
 import pytest
+from datetime import datetime
 from sqlalchemy import create_engine, event
 from sqlalchemy.orm import sessionmaker
+from tomlkit import datetime
 from sqlalchemy_utils import database_exists, create_database, drop_database
 from fastapi.testclient import TestClient
 import typing as t
@@ -175,13 +177,100 @@ def test_cinema(test_db) -> models.Cinema:
     """
     Make a test cinema in the database
     """
-
-    cinema = models.User(
-        name="First Cinema",
-        description="test decription",
-        user_id = 1
+    cinema = models.Cinema(
+        name="Test Cinema",
+        description="test cinema decription",
+        user_id = 1,
         is_active=True,
     )
     test_db.add(cinema)
     test_db.commit()
     return cinema
+
+
+#   Hall Test Methods
+
+@pytest.fixture
+def test_hall(test_db) -> models.Hall:
+    """
+    Make a test hall in the database
+    """
+
+    hall = models.Hall(
+        name = "Test Hall",
+        description = "test hall decription",
+        cinema_id = 1,
+        is_active=True,
+        )
+    test_db.add(hall)
+    test_db.commit()
+    return hall
+
+
+#   Movie Test Methods
+
+@pytest.fixture
+def test_movie(test_db) -> models.Movie:
+    """
+    Make a test movie in the database
+    """
+
+    movie = models.Movie(
+        title="Test Movie",
+        description="test decription",
+        is_active=True,
+    )
+    test_db.add(movie)
+    test_db.commit()
+    return movie
+
+#   Showing Test Methods
+@pytest.fixture
+def test_showing(test_db) -> models.Showing:
+    """
+    Make a test showing in the database
+    """
+
+    showing = models.Showing(
+        title="Test Showing",
+        start= datetime.now,
+        end= datetime.now,
+        is_active=True,
+        hall_id = 1,
+        movie_id = 1,
+    )
+    test_db.add(showing)
+    test_db.commit()
+    return showing
+
+#   Seat Test Methods
+@pytest.fixture
+def test_seat(test_db) -> models.Seat:
+    """
+    Make a test seat in the database
+    """
+
+    seat = models.Seat(
+        number=1,
+        is_active=True,
+        hall_id = 1,
+    )
+    test_db.add(seat)
+    test_db.commit()
+    return seat
+
+#   Book Test Methods
+@pytest.fixture
+def test_book(test_db) -> models.Book:
+    """
+    Make a test book in the database
+    """
+
+    book = models.Book(
+        seat_id = 1,
+        user_id = 1,
+        showing_id = 1,
+    )
+    test_db.add(book)
+    test_db.commit()
+    return book

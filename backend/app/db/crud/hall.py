@@ -23,6 +23,7 @@ def create_hall(db: Session, hall: hall_schema.HallCreate):
     db_hall = models.Hall(
         name = hall.name,
         description = hall.description,
+        cinema_id = hall.cinema_id,
         is_active = hall.is_active,
     )
     db.add(db_hall)

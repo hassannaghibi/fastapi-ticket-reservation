@@ -27,6 +27,7 @@ class HallEdit(HallBase):
 
 class Hall(HallBase):
     id: int
+    cinema_id:int
     is_active: bool
     seats: t.List[Seat] = None
     showings: t.List[Showing] = None
