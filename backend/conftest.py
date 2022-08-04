@@ -167,3 +167,21 @@ def superuser_token_headers(
     a_token = tokens["access_token"]
     headers = {"Authorization": f"Bearer {a_token}"}
     return headers
+
+#   Cinema Test Methods
+
+@pytest.fixture
+def test_cinema(test_db) -> models.Cinema:
+    """
+    Make a test cinema in the database
+    """
+
+    cinema = models.User(
+        name="First Cinema",
+        description="test decription",
+        user_id = 1
+        is_active=True,
+    )
+    test_db.add(cinema)
+    test_db.commit()
+    return cinema
