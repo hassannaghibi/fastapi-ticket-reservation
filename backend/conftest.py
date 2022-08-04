@@ -12,6 +12,7 @@ from app.db.session import Base, get_db
 from app.db import models
 from app.main import app
 
+#   User Test Methods
 
 def get_test_db_url() -> str:
     return f"{config.SQLALCHEMY_DATABASE_URI}_test"
@@ -133,6 +134,8 @@ def test_superuser(test_db) -> models.User:
     return user
 
 
+#   Auth Test Methods
+
 def verify_password_mock(first: str, second: str) -> bool:
     return True
 
@@ -169,6 +172,7 @@ def superuser_token_headers(
     a_token = tokens["access_token"]
     headers = {"Authorization": f"Bearer {a_token}"}
     return headers
+
 
 #   Cinema Test Methods
 
@@ -224,7 +228,9 @@ def test_movie(test_db) -> models.Movie:
     test_db.commit()
     return movie
 
+
 #   Showing Test Methods
+
 @pytest.fixture
 def test_showing(test_db) -> models.Showing:
     """
@@ -243,7 +249,9 @@ def test_showing(test_db) -> models.Showing:
     test_db.commit()
     return showing
 
+
 #   Seat Test Methods
+
 @pytest.fixture
 def test_seat(test_db) -> models.Seat:
     """
@@ -259,7 +267,9 @@ def test_seat(test_db) -> models.Seat:
     test_db.commit()
     return seat
 
+
 #   Book Test Methods
+
 @pytest.fixture
 def test_book(test_db) -> models.Book:
     """
