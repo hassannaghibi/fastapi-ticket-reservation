@@ -70,7 +70,7 @@ def sign_up_new_user(db, email: str, password: str):
             email=email,
             password=password,
             is_active=True,
-            is_superuser=True,
+            is_superuser=False,
         ),
     )
     return new_user

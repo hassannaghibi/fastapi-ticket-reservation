@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 
-from app.db.session import get_db
-from app.db.crud import create_user
-from app.db.schemas import UserCreate
-from app.db.session import SessionLocal
+from app.db.session import get_db, SessionLocal
+from app.db.crud.user import create_user
+from app.db.schemas.user import UserCreate
 
 
 def init() -> None:
@@ -21,6 +20,6 @@ def init() -> None:
 
 
 if __name__ == "__main__":
-    print("Creating superuser admin@fastapi-ticket-reservation.com")
+    print("Creating superuser admin@test.com")
     init()
     print("Superuser created")

@@ -33,6 +33,7 @@ def create_user(db: Session, user: user_schema.UserCreate):
         is_active=user.is_active,
         is_superuser=user.is_superuser,
         hashed_password=hashed_password,
+        books=[],
     )
     db.add(db_user)
     db.commit()
