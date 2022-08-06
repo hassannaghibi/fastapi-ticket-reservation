@@ -2,12 +2,12 @@ from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 import typing as t
 
-from db import models
-from db.schemas import showing as showing_schema
+from app.db.models import Showing 
+from app.db.schemas import showing as showing_schema
 
 
 def get_showing(db: Session, showing_id: int):
-    showing = db.query(models.Showing).filter(models.Showing.id == showing_id).first()
+    showing = db.query(Showing).filter(Showing.id == showing_id).first()
     if not showing:
         raise HTTPException(status_code=404, detail="showing not found")
     return showing
@@ -16,11 +16,11 @@ def get_showing(db: Session, showing_id: int):
 def get_showings(
     db: Session, skip: int = 0, limit: int = 100
 ) -> t.List[showing_schema.ShowingOut]:
-    return db.query(models.Showing).offset(skip).limit(limit).all()
+    return db.query(Showing).offset(skip).limit(limit).all()
 
 
 def create_showing(db: Session, showing: showing_schema.ShowingCreate):
-    db_showing = models.Showing(
+    db_showing = Showing(
         title = showing.title,
         start = showing.start,
         end = showing.end,

@@ -29,7 +29,6 @@ class UserEdit(UserBase):
 class User(UserBase):
     id: int
     books: t.List[Book] = None
-    cinemas:t.List[Cinema] = None
 
     class Config:
         orm_mode = True

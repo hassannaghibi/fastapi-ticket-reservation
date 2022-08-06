@@ -18,7 +18,6 @@ class User(Base):
     is_superuser = Column(Boolean, default=False)
     #foreignKey relations
     books = relationship("Book", back_populates="user")
-    cinemas = relationship("Cinema", back_populates="user")
     
 class Cinema(Base):
     __tablename__ = "cinemas"
@@ -29,11 +28,8 @@ class Cinema(Base):
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime, default=datetime.now)
     updated_at = Column(DateTime, default=datetime.now, onupdate=datetime.now)    
-    #foreignKey
-    user_id = Column(Integer, ForeignKey("users.id"))
     #foreignKey relations
     halls = relationship("Hall", back_populates="cinema")
-    user = relationship("User", back_populates="cinemas")
     
 class Hall(Base):
     __tablename__ = "halls"

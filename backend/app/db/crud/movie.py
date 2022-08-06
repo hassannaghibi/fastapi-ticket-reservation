@@ -2,12 +2,12 @@ from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 import typing as t
 
-from db import models
-from db.schemas import movie as movie_schema
+from app.db.models import Movie
+from app.db.schemas import movie as movie_schema
 
 
 def get_movie(db: Session, movie_id: int):
-    movie = db.query(models.Movie).filter(models.Movie.id == movie_id).first()
+    movie = db.query(Movie).filter(Movie.id == movie_id).first()
     if not movie:
         raise HTTPException(status_code=404, detail="movie not found")
     return movie
@@ -16,11 +16,11 @@ def get_movie(db: Session, movie_id: int):
 def get_movies(
     db: Session, skip: int = 0, limit: int = 100
 ) -> t.List[movie_schema.MovieOut]:
-    return db.query(models.Movie).offset(skip).limit(limit).all()
+    return db.query(Movie).offset(skip).limit(limit).all()
 
 
 def create_movie(db: Session, movie: movie_schema.MovieCreate):
-    db_movie = models.Movie(
+    db_movie = Movie(
         title = movie.title,
         description = movie.description,
         is_active = movie.is_active,

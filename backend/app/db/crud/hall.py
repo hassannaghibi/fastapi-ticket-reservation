@@ -2,12 +2,12 @@ from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 import typing as t
 
-from db import models
-from db.schemas import hall as hall_schema
+from app.db.models import Hall
+from app.db.schemas import hall as hall_schema
 
 
 def get_hall(db: Session, hall_id: int):
-    hall = db.query(models.Hall).filter(models.Hall.id == hall_id).first()
+    hall = db.query(Hall).filter(Hall.id == hall_id).first()
     if not hall:
         raise HTTPException(status_code=404, detail="hall not found")
     return hall
@@ -16,11 +16,11 @@ def get_hall(db: Session, hall_id: int):
 def get_halls(
     db: Session, skip: int = 0, limit: int = 100
 ) -> t.List[hall_schema.HallOut]:
-    return db.query(models.Hall).offset(skip).limit(limit).all()
+    return db.query(Hall).offset(skip).limit(limit).all()
 
 
 def create_hall(db: Session, hall: hall_schema.HallCreate):
-    db_hall = models.Hall(
+    db_hall = Hall(
         name = hall.name,
         description = hall.description,
         cinema_id = hall.cinema_id,

@@ -26,7 +26,6 @@ class CinemaEdit(CinemaBase):
 
 class Cinema(CinemaBase):
     id: int
-    user_id: int
     is_active: bool
     halls: t.List[Hall] = None
     

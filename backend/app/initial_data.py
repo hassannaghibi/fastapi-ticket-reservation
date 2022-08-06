@@ -12,7 +12,7 @@ def init() -> None:
     create_user(
         db,
         UserCreate(
-            email="admin@fastapi-ticket-reservation.com",
+            email="admin@test.com",
             password="admin@123",
             is_active=True,
             is_superuser=True,

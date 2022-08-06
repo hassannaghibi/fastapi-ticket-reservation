@@ -2,12 +2,12 @@ from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 import typing as t
 
-from db import models
-from db.schemas import seat as seat_schema
+from app.db.models import Seat
+from app.db.schemas import seat as seat_schema
 
 
 def get_seat(db: Session, seat_id: int):
-    seat = db.query(models.Seat).filter(models.Seat.id == seat_id).first()
+    seat = db.query(Seat).filter(Seat.id == seat_id).first()
     if not seat:
         raise HTTPException(status_code=404, detail="seat not found")
     return seat
@@ -16,11 +16,11 @@ def get_seat(db: Session, seat_id: int):
 def get_seats(
     db: Session, skip: int = 0, limit: int = 100
 ) -> t.List[seat_schema.SeatOut]:
-    return db.query(models.Seat).offset(skip).limit(limit).all()
+    return db.query(Seat).offset(skip).limit(limit).all()
 
 
 def create_seat(db: Session, seat: seat_schema.SeatCreate):
-    db_seat = models.Seat(
+    db_seat = Seat(
         number = seat.number,
         hall_id = seat.hall_id,
         is_active = seat.is_active,
