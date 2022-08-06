@@ -79,7 +79,7 @@ class Showing(Base):
     #foreignKey relations
     hall = relationship("Hall", back_populates="showings")
     movie = relationship("Movie", back_populates="showings")
-    books = relationship("Book", back_populates="user")
+    books = relationship("Book", back_populates="showing")
     
 class Seat(Base):
     __tablename__ = "seats"
@@ -93,7 +93,7 @@ class Seat(Base):
     hall_id = Column(Integer, ForeignKey("halls.id"))
     #foreignKey relations
     hall = relationship("Hall", back_populates="seats")
-    books = relationship("Book", back_populates="user")
+    books = relationship("Book", back_populates="seat")
     
 class Book(Base):
     __tablename__ = "books"
