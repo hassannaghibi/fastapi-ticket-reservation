@@ -25,6 +25,17 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data:cached
 
+  pgadmin:
+    container_name: pgadmin_lemon
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
+    ports:
+      - 5050:80
+    depends_on:
+      - db
+      
   worker:
     build:
       context: backend
@@ -38,6 +49,21 @@ services:
         - 5555:5555
     depends_on:
       - "redis"
+
+  elasticsearch:
+    container_name: search
+    image: elasticsearch:8.2.0
+    environment:
+      - cluster.name=ecomerce-elasticsearch
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - ES_JAVA_OPTS=-Xms128m -Xmx128m
+    ports:
+      - "9200:9200"
+    volumes:
+      - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    depends_on:
+      - db
 
   backend:
     build:

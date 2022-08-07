@@ -6,7 +6,9 @@ This project is a sample of comunication between fastapi and postgresql with cel
 
 - **FastAPI** with Python 3.8
 - Postgres
+- PgAdmin
 - SqlAlchemy with Alembic for migrations
+- ElasticSearch
 - Pytest for backend tests
 - Perttier/Eslint (with Airbnb style guide)
 - Docker compose for easier development
